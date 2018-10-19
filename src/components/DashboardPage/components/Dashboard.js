@@ -8,14 +8,28 @@ import Pagination from "./Pagination";
 export class Dashboard extends React.Component {
   state = {
     page: 1,
-    filteredList: []
+    filteredList: [],
+    prevSearchText: "",
+    prevRatings: [1, 2, 3, 4, 5]
   };
-  filter = memoize((list, searchText, ratings) =>
-   { this.setState({page:1})
-     return list.filter(
+  filter = memoize((list, searchText, ratings) => {
+    return list.filter(
       item => item.comment.includes(searchText) && ratings.includes(item.rating)
-    )}
-  );
+    );
+  });
+  static getDerivedStateFromProps(props, state) {
+    if (
+      props.searchText !== state.prevSearchText ||
+      props.ratings !== state.prevRatings
+    ) {
+      return {
+        prevSearchText: props.searchText,
+        prevRatings: props.ratings,
+        page: 1
+      };
+    }
+    return null;
+  }
   renderHeader = () => {
     const headerList = ["Rating", "Comment", "Browser", "Device", "Platform"];
     return headerList.map((item, index) => (
@@ -38,7 +52,7 @@ export class Dashboard extends React.Component {
     if (filteredList.length === 0) {
       return (
         <tr>
-          <div className="no-data">No data to match your filters</div>
+          <td className="no-data">No data to match your filters</td>
         </tr>
       );
     }

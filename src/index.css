@@ -33,11 +33,14 @@ body {
   padding: 15px 0px;
 }
 .no-data{
-    width: 200%;
     font-size: 20px;
     color: #ccc;
     text-align: center;
     padding: 15px 0;
+    position: absolute;
+    width: 84.8%;
+    height: 60px;
+    background: white;
 }
 .padding-comment{
   padding-left: 35px !important;
