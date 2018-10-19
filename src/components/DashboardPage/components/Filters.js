@@ -5,7 +5,7 @@ import styles from '../styles/styles'
 export class Filters extends React.Component {
     state = {
         searchText: "",
-        ratings: [1,2,3,4,5]
+        ratings: [1, 2, 3, 4, 5]
     }
     handleInputChange = (event) => {
         this.setState({ searchText: event.target.value }, () => {
@@ -34,7 +34,7 @@ export class Filters extends React.Component {
         const { searchText } = this.state;
         return (
             <div>
-                <input type="text" value={searchText} onChange={this.handleInputChange} />
+                <input type="text" placeholder="Search here!" value={searchText} onChange={this.handleInputChange} style={styles.inputSearch} />
                 <div style={styles.ratingContainer}>
                     {this.renderRatingList()}
                 </div>
@@ -46,6 +46,6 @@ export class Filters extends React.Component {
 Filters.propTypes = {
     setRatings: PropTypes.func.isRequired,
     setSearchText: PropTypes.func.isRequired
-  };
-  
+};
+
 export default Filters
