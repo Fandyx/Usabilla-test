@@ -4,22 +4,22 @@ export default class TablePlaceholder extends React.Component {
   render() {
     return [1, 2, 3].map(item => (
       <tr key={item} className="table-row">
-        <td className="padding-row center">
+        <td className="padding-row center rating">
           <ContentLoader
-            height={300}
+            height={100}
             width={500}
             speed={1}
             primaryColor="#f3f3f3"
             secondaryColor="#ecebeb"
           >
-            <circle cx="220" cy="150" r="108.36" />
+            <circle cx="240" cy="50" r="50" />
           </ContentLoader>
         </td>
-        {[1, 2, 3, 4].map(item => (
-          <td key={item}>
+        {["padding-comment", "browser", "device", "platform", "details"].map((item, index) => (
+          <td key={index} className={item}>
             <ContentLoader
-              height={40}
-              width={500}
+              height={30}
+              width={600}
               speed={1}
               primaryColor="#f3f3f3"
               secondaryColor="#ecebeb"
