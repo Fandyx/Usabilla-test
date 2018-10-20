@@ -34,8 +34,8 @@ export class Filters extends React.Component {
         const { searchText } = this.state;
         return (
             <div>
-                <input type="text" placeholder="Search here!" value={searchText} onChange={this.handleInputChange} style={styles.inputSearch} />
-                <div style={styles.ratingContainer}>
+                <input type="text" placeholder="Search here!" value={searchText} onChange={this.handleInputChange} style={styles.inputSearch} className='responsive-input'/>
+                <div style={styles.ratingContainer} className='responsive-container'>
                     {this.renderRatingList()}
                 </div>
             </div>

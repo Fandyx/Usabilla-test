@@ -1,61 +1,145 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 body {
   margin: 0;
   padding: 0;
-  background:#EEF3F7;
-  font-family: 'Lato', sans-serif;
+  background: #eef3f7;
+  font-family: "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.table-row td{
+.table-row td {
   border-bottom: 1px solid #eee;
-  font-size:14px;
-  color:#59636C;
+  font-size: 14px;
+  color: #59636c;
 }
-.ratings{
-  margin:0px 5px;
-  cursor:pointer;
+.ratings {
+  margin: 0px 5px;
+  cursor: pointer;
 }
-.no-cursor{
-  cursor:default;
+.no-cursor {
+  cursor: default;
 }
-.ratings.active{
-  background-color:#01A1C3 !important;
-  color:white !important;
-  border:none !important
+.ratings.active {
+  background-color: #01a1c3 !important;
+  color: white !important;
+  border: none !important;
 }
-.center{
+.center {
   text-align: center;
 }
-.padding-row{
+.padding-row {
   padding: 15px 0px;
 }
-.no-data{
-    font-size: 20px;
-    color: #ccc;
-    text-align: center;
-    padding: 15px 0;
-    position: absolute;
-    width: 84.8%;
-    height: 60px;
-    background: white;
+.no-data {
+  font-size: 20px;
+  color: #ccc;
+  text-align: center;
+  padding: 15px 0;
+  position: absolute;
+  width: 84.8%;
+  height: 60px;
+  background: white;
 }
-.padding-comment{
+.padding-comment {
   padding-left: 35px !important;
   max-width: 200px;
 }
-.page-link{
-  cursor:pointer;
+.page-link {
+  cursor: pointer;
 }
 
-.page-link.active,.page-link.active:hover{
-  background:#337AB7;
-  color:white
+.page-link.active,
+.page-link.active:hover {
+  background: #337ab7;
+  color: white;
 }
-.page-link.disabled{
-  background:#ccc;
-  color:#fafafa;
-  pointer-events:none;
+.page-link.disabled {
+  background: #ccc;
+  color: darkgray;
+  pointer-events: none;
+}
+@media all and (max-width: 760px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  table {
+    border: 1px solid #fff;
+  }
+  thead {
+    display: none;
+  }
+  input {
+    width: 100% !important;
+  }
+  .no-data {
+    width: 100%;
+    padding: 0 !important;
+    left: 0;
+  }
+  .responsive-container {
+    display: block;
+    width: 200px;
+    margin-left: 0 !important;
+    margin-top: 20px !important;
+  }
+  tr:nth-child(even) {
+    background: #eef3f7;
+  }
+  tr:nth-child(even) td {
+    border-bottom: 1px solid #fff;
+  }
+  td,
+  td.padding-comment {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding: 10px 0 !important;
+    padding-left: 50% !important;
+    padding-right: 20px !important;
+    max-width: unset;
+    text-align: center;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 30%;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+Label the data
+You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+*/
+  td:before {
+    font-weight: bold;
+  }
+  td.rating:before {
+    content: "Rating";
+  }
+  td.padding-comment:before {
+    content: "Comment";
+  }
+  td.browser:before {
+    content: "Browser";
+  }
+  td.device:before {
+    content: "Device";
+  }
+  td.platform:before {
+    content: "Platform";
+  }
 }

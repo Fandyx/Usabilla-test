@@ -68,7 +68,7 @@ export class Dashboard extends React.Component {
       } = item;
       return (
         <tr key={index} className="table-row">
-          <td className="padding-row center">
+          <td className="padding-row center rating">
             <div
               style={styles.ratingStyle}
               className="ratings active no-cursor"
@@ -76,14 +76,14 @@ export class Dashboard extends React.Component {
               {rating}
             </div>
           </td>
-          <td className="padding-comment">{comment}</td>
-          <td className="center">
+          {comment ? <td className="padding-comment">{comment}</td> : <td />}
+          <td className="center browser">
             {Browser}
             <br />
             {Version}
           </td>
-          <td className="center">{isMobile ? "Mobile" : "Desktop"}</td>
-          <td className="center">{Platform}</td>
+          <td className="center device">{isMobile ? "Mobile" : "Desktop"}</td>
+          <td className="center platform">{Platform}</td>
         </tr>
       );
     });

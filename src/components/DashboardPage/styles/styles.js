@@ -35,7 +35,6 @@ const styles =
         marginLeft:'50px'
     },
     tableBodyStyle: {
-        width: '768px',
         margin: 'auto'
     },
     dashboardTitle:{
