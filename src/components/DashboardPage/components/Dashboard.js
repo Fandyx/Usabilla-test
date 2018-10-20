@@ -9,8 +9,7 @@ export class Dashboard extends React.Component {
   state = {
     page: 1,
     filteredList: [],
-    prevSearchText: "",
-    prevRatings: [1, 2, 3, 4, 5]
+    detailsShowIndexList: []
   };
   filter = memoize((list, searchText, ratings) => {
     return list.filter(
@@ -31,7 +30,14 @@ export class Dashboard extends React.Component {
     return null;
   }
   renderHeader = () => {
-    const headerList = ["Rating", "Comment", "Browser", "Device", "Platform"];
+    const headerList = [
+      "Rating",
+      "Comment",
+      "Browser",
+      "Device",
+      "Platform",
+      "Details"
+    ];
     return headerList.map((item, index) => (
       <th
         key={index}
@@ -44,29 +50,65 @@ export class Dashboard extends React.Component {
       </th>
     ));
   };
-  renderBody = filteredList => {
-    const { reviews } = this.props;
-    if (reviews.isLoading) {
-      return <TablePlaceholder />;
+  toggleDetails = index => {
+    const { detailsShowIndexList } = this.state;
+    if (!detailsShowIndexList.includes(index)) {
+      this.setState({ detailsShowIndexList: [...detailsShowIndexList, index] });
+    } else {
+      const newDetailsShowIndexList = [...detailsShowIndexList];
+      var itemIndex = newDetailsShowIndexList.indexOf(index);
+      newDetailsShowIndexList.splice(itemIndex, 1);
+      this.setState({ detailsShowIndexList: newDetailsShowIndexList });
     }
-    if (filteredList.length === 0) {
-      return (
-        <tr>
-          <td className="no-data">No data to match your filters</td>
-        </tr>
-      );
-    }
-    return filteredList.map((item, index) => {
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(
-        item.userAgent
-      );
-
-      const {
-        rating,
-        comment,
-        computed_browser: { Browser, Version, Platform }
-      } = item;
-      return (
+  };
+  renderElementDetails = (item, index, isDetailsShow) => {
+    const {
+      custom: { subject },
+      computed_location,
+      geo: { country, city },
+      email,
+      url
+    } = item;
+    return (
+      <td colSpan={6} id={`details-${index}`} className="responsive-details">
+        {isDetailsShow && (
+          <div style={styles.detailsContainer}>
+            <div className="left">
+              <p>
+                <span className="label">Subject:</span> {subject}
+              </p>
+              <p>
+                <span className="label">Location:</span> {city},{" "}
+                {computed_location}{" "}
+                <img
+                  src={`https://www.countryflags.io/${country}/shiny/24.png`}
+                />
+              </p>
+            </div>
+            <div className="right">
+              <p>
+                <span className="label">Email:</span> {email || "--"}
+              </p>
+              <p>
+                <span className="label">Url:</span> {url}
+              </p>
+            </div>
+          </div>
+        )}
+      </td>
+    );
+  };
+  renderTableElement = (item, index, isDetailsShow) => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(
+      item.userAgent
+    );
+    const {
+      rating,
+      comment,
+      computed_browser: { Browser, Version, Platform }
+    } = item;
+    return (
+      <React.Fragment>
         <tr key={index} className="table-row">
           <td className="padding-row center rating">
             <div
@@ -84,8 +126,37 @@ export class Dashboard extends React.Component {
           </td>
           <td className="center device">{isMobile ? "Mobile" : "Desktop"}</td>
           <td className="center platform">{Platform}</td>
+          <td
+            className="center details"
+            onClick={() => this.toggleDetails(index)}
+          >
+            {isDetailsShow ? (
+              <span className="glyphicon glyphicon-menu-up" />
+            ) : (
+              <span className="glyphicon glyphicon-menu-down" />
+            )}
+          </td>
+        </tr>
+        <tr>{this.renderElementDetails(item, index, isDetailsShow)}</tr>
+      </React.Fragment>
+    );
+  };
+  renderBody = filteredList => {
+    const { reviews } = this.props;
+    if (reviews.isLoading) {
+      return <TablePlaceholder />;
+    }
+    if (filteredList.length === 0) {
+      return (
+        <tr>
+          <td className="no-data">No data to match your filters</td>
         </tr>
       );
+    }
+    return filteredList.map((item, index) => {
+      const { detailsShowIndexList } = this.state;
+      const isDetailsShow = detailsShowIndexList.includes(index);
+      return this.renderTableElement(item, index, isDetailsShow);
     });
   };
   setPage = page => {

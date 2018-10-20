@@ -18,8 +18,16 @@ body {
   margin: 0px 5px;
   cursor: pointer;
 }
+.details{
+  cursor:pointer;
+}
 .no-cursor {
   cursor: default;
+}
+.label{
+  font-weight: bold;
+  color:#59636c;
+  font-size: 14px
 }
 .ratings.active {
   background-color: #01a1c3 !important;
@@ -60,6 +68,11 @@ body {
   color: darkgray;
   pointer-events: none;
 }
+.left{
+  float:left;
+  margin-right:20px;
+}
+
 @media all and (max-width: 760px) {
   /* Force table to not be like tables anymore */
   table,
@@ -89,6 +102,10 @@ body {
     width: 200px;
     margin-left: 0 !important;
     margin-top: 20px !important;
+  }
+  .responsive-details{
+    padding-left:0 !important;
+    padding-right:0 !important;
   }
   tr:nth-child(even) {
     background: #eef3f7;

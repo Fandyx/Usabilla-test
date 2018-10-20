@@ -4,6 +4,9 @@ const styles =
         width: '85%',
         margin: 'auto'
     },
+    detailsContainer:{
+        padding:'15px'
+    },
     tableHeaderStyle: {
         backgroundColor:'#59636C',
         color:'white',
