@@ -143,7 +143,7 @@ export class Dashboard extends React.Component {
   };
   renderBody = filteredList => {
     const { reviews } = this.props;
-    if (reviews.isLoading || true) {
+    if (reviews.isLoading) {
       return <TablePlaceholder />;
     }
     if (filteredList.length === 0) {
