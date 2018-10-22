@@ -1,7 +1,7 @@
 export default () => ({
   reviews: {
     list: [],
-    isLoading:false,
-    count:0
+    isLoading: false,
+    count: 0
   }
 });

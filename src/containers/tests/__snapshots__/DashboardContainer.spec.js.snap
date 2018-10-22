@@ -1,0 +1,305 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DashboardContainer /> should match snapshot 1`] = `
+<div>
+  <div>
+    <nav
+      style={
+        Object {
+          "background": "white",
+          "boxShadow": "1px 1px 5px #ccc",
+          "marginBottom": "15px",
+          "padding": "15px 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      <span
+        className="glyphicon glyphicon-dashboard"
+      />
+      <h2
+        style={
+          Object {
+            "display": "inline-block",
+            "fontSize": "16px",
+            "fontWeight": "400",
+            "letterSpacing": "1px",
+            "margin": "0",
+            "marginLeft": "10px",
+          }
+        }
+      >
+        Dashboard
+      </h2>
+    </nav>
+    <div
+      style={
+        Object {
+          "margin": "auto",
+          "width": "85%",
+        }
+      }
+    >
+      <div>
+        <input
+          className="responsive-input"
+          onChange={[Function]}
+          placeholder="Search here!"
+          style={
+            Object {
+              "border": "1px solid #ccc",
+              "borderRadius": "5px",
+              "fontSize": "14px",
+              "padding": "3px 12px",
+              "width": "135px",
+            }
+          }
+          type="text"
+          value=""
+        />
+        <div
+          className="responsive-container"
+          style={
+            Object {
+              "display": "inline-block",
+              "marginLeft": "50px",
+            }
+          }
+        >
+          <div
+            className="ratings active"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "border": "1px solid #ccc",
+                "borderRadius": "100px",
+                "color": "#ccc",
+                "display": "inline-block",
+                "fontSize": "14px",
+                "fontWeight": 500,
+                "height": "30px",
+                "lineHeight": "2.1",
+                "textAlign": "center",
+                "width": "30px",
+              }
+            }
+          >
+            1
+          </div>
+          <div
+            className="ratings active"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "border": "1px solid #ccc",
+                "borderRadius": "100px",
+                "color": "#ccc",
+                "display": "inline-block",
+                "fontSize": "14px",
+                "fontWeight": 500,
+                "height": "30px",
+                "lineHeight": "2.1",
+                "textAlign": "center",
+                "width": "30px",
+              }
+            }
+          >
+            2
+          </div>
+          <div
+            className="ratings active"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "border": "1px solid #ccc",
+                "borderRadius": "100px",
+                "color": "#ccc",
+                "display": "inline-block",
+                "fontSize": "14px",
+                "fontWeight": 500,
+                "height": "30px",
+                "lineHeight": "2.1",
+                "textAlign": "center",
+                "width": "30px",
+              }
+            }
+          >
+            3
+          </div>
+          <div
+            className="ratings active"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "border": "1px solid #ccc",
+                "borderRadius": "100px",
+                "color": "#ccc",
+                "display": "inline-block",
+                "fontSize": "14px",
+                "fontWeight": 500,
+                "height": "30px",
+                "lineHeight": "2.1",
+                "textAlign": "center",
+                "width": "30px",
+              }
+            }
+          >
+            4
+          </div>
+          <div
+            className="ratings active"
+            onClick={[Function]}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "border": "1px solid #ccc",
+                "borderRadius": "100px",
+                "color": "#ccc",
+                "display": "inline-block",
+                "fontSize": "14px",
+                "fontWeight": 500,
+                "height": "30px",
+                "lineHeight": "2.1",
+                "textAlign": "center",
+                "width": "30px",
+              }
+            }
+          >
+            5
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          style={
+            Object {
+              "border": "1px solid transparent",
+              "borderRadius": "38px 38px 5px 5px",
+              "overflow": "hidden",
+            }
+          }
+        >
+          <table
+            cellPadding="10"
+            cellSpacing="0"
+            style={
+              Object {
+                "backgroundColor": "white",
+                "borderRadius": "5px",
+                "boxShadow": "1px 2px 2px #ccc",
+                "marginTop": "25px",
+                "width": "100%",
+              }
+            }
+          >
+            <thead
+              style={
+                Object {
+                  "backgroundColor": "#59636C",
+                  "color": "white",
+                  "fontWeight": "200",
+                  "textAlign": "left",
+                }
+              }
+            >
+              <tr>
+                <th
+                  className="center"
+                  style={
+                    Object {
+                      "fontSize": "14px",
+                      "fontWeight": "normal",
+                      "padding": "15px 0px",
+                    }
+                  }
+                >
+                  Rating
+                </th>
+                <th
+                  className="padding-comment"
+                  style={
+                    Object {
+                      "fontSize": "14px",
+                      "fontWeight": "normal",
+                      "padding": "15px 0px",
+                    }
+                  }
+                >
+                  Comment
+                </th>
+                <th
+                  className="center"
+                  style={
+                    Object {
+                      "fontSize": "14px",
+                      "fontWeight": "normal",
+                      "padding": "15px 0px",
+                    }
+                  }
+                >
+                  Browser
+                </th>
+                <th
+                  className="center"
+                  style={
+                    Object {
+                      "fontSize": "14px",
+                      "fontWeight": "normal",
+                      "padding": "15px 0px",
+                    }
+                  }
+                >
+                  Device
+                </th>
+                <th
+                  className="center"
+                  style={
+                    Object {
+                      "fontSize": "14px",
+                      "fontWeight": "normal",
+                      "padding": "15px 0px",
+                    }
+                  }
+                >
+                  Platform
+                </th>
+                <th
+                  className="center"
+                  style={
+                    Object {
+                      "fontSize": "14px",
+                      "fontWeight": "normal",
+                      "padding": "15px 0px",
+                    }
+                  }
+                >
+                  Details
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              style={
+                Object {
+                  "margin": "auto",
+                }
+              }
+            >
+              <tr>
+                <td
+                  className="no-data"
+                >
+                  No data to match your filters
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

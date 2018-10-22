@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../actions/reviews";
 
-export class Reviews extends React.Component {
+export class DashboardContainer extends React.Component {
   componentDidMount() {
     this.props.actions.fetchReviews();
   }
@@ -19,7 +19,7 @@ export class Reviews extends React.Component {
   }
 }
 
-Reviews.propTypes = {
+DashboardContainer.propTypes = {
   actions: PropTypes.object.isRequired,
   reviews: PropTypes.object.isRequired
 };
@@ -39,4 +39,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Reviews);
+)(DashboardContainer);

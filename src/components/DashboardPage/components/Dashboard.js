@@ -81,6 +81,7 @@ export class Dashboard extends React.Component {
                 <span className="label">Location:</span> {city},{" "}
                 {computed_location}{" "}
                 <img
+                  alt="country-flag"
                   src={`https://www.countryflags.io/${country}/shiny/24.png`}
                 />
               </p>
@@ -108,8 +109,8 @@ export class Dashboard extends React.Component {
       computed_browser: { Browser, Version, Platform }
     } = item;
     return (
-      <React.Fragment>
-        <tr key={index} className="table-row">
+      <React.Fragment key={index}>
+        <tr className="table-row">
           <td className="padding-row center rating">
             <div
               style={styles.ratingStyle}
